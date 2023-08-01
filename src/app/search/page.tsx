@@ -6,13 +6,13 @@ type Props = {
     searchParams: { q: string; page?: string }
 }
 
-export async function generateMetadata({
-    searchParams: { q },
-}: Props): Promise<Metadata> {
-    return {
-        title: q + ' - Google Search',
-    }
-}
+// export async function generateMetadata({
+//     searchParams: { q },
+// }: Props): Promise<Metadata> {
+//     return {
+//         title: q + ' - Google Search',
+//     }
+// }
 
 async function page({ searchParams: { q, page } }: Props) {
     const startIndex =
