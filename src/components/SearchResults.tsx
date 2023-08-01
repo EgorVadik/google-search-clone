@@ -1,5 +1,4 @@
 import { Schema$Search } from '@/types/SearchType'
-import Link from 'next/link'
 import ResultCard from './ResultCard'
 import Pagination from './Pagination'
 
@@ -15,9 +14,15 @@ function SearchResults({ data }: Props) {
                 {data.searchInformation?.formattedSearchTime} seconds)
             </p>
             <div className='mt-5 max-w-[640px] space-y-7'>
-                {data.items?.map((item, i) => (
-                    <ResultCard key={i} item={item} />
-                ))}
+                {data.items ? (
+                    data.items.map((item, i) => (
+                        <ResultCard key={i} item={item} />
+                    ))
+                ) : (
+                    <p className='text-center dark:text-white text-black'>
+                        Google API daily qouta exceeded
+                    </p>
+                )}
                 <Pagination />
             </div>
         </div>

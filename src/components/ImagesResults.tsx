@@ -87,7 +87,9 @@ function ImagesResults({ data: initialData, q }: Props) {
                     )
                 })
             ) : (
-                <p>An Error Has Occured</p>
+                <p className='text-center dark:text-white text-black'>
+                    Google API daily qouta exceeded
+                </p>
             )}
         </div>
     )
