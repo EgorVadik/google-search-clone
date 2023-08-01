@@ -29,8 +29,10 @@ export default function Tooltip({
             </div>
             {showTooltip && (
                 <div
-                    className={`absolute top-9 left-1/2 transform -translate-x-1/2 bg-[#202124] font-bold text-[#bdc1c6] py-1 px-[10px] border border-[#3c4043] text-[11px] shadow-clear-button ${className} ${
-                        (email != null || userName != null) && '-left-[250%]'
+                    className={`absolute top-9 transform -translate-x-1/2 bg-[#202124] font-bold text-[#bdc1c6] py-1 px-[10px] border border-[#3c4043] text-[11px] shadow-clear-button ${className} ${
+                        email != null || userName != null
+                            ? '-left-[250%]'
+                            : 'left-1/2'
                     }`}
                 >
                     <p className='whitespace-nowrap'>{text}</p>
