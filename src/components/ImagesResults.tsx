@@ -56,35 +56,39 @@ function ImagesResults({ data: initialData, q }: Props) {
 
     return (
         <div className='grid grid-cols-auto-fit gap-4 p-5'>
-            {data.items!.map((item, i) => {
-                if (i === data.items!.length - 2)
+            {data.items ? (
+                data.items!.map((item, i) => {
+                    if (i === data.items!.length - 2)
+                        return (
+                            <Link
+                                ref={ref}
+                                href={item.displayLink!}
+                                key={item.link ?? item.image?.thumbnailLink}
+                                className='group'
+                            >
+                                <ImageCard item={item} />
+                            </Link>
+                        )
+
                     return (
                         <Link
-                            ref={ref}
-                            href={item.displayLink!}
+                            href={
+                                'https://' +
+                                item.displayLink
+                                    ?.replaceAll('www.', '')
+                                    .replaceAll('https://', '')
+                            }
+                            target='_blank'
                             key={item.link ?? item.image?.thumbnailLink}
                             className='group'
                         >
                             <ImageCard item={item} />
                         </Link>
                     )
-
-                return (
-                    <Link
-                        href={
-                            'https://' +
-                            item.displayLink
-                                ?.replaceAll('www.', '')
-                                .replaceAll('https://', '')
-                        }
-                        target='_blank'
-                        key={item.link ?? item.image?.thumbnailLink}
-                        className='group'
-                    >
-                        <ImageCard item={item} />
-                    </Link>
-                )
-            })}
+                })
+            ) : (
+                <p>An Error Has Occured</p>
+            )}
         </div>
     )
 }
