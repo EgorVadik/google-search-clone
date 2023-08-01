@@ -30,12 +30,12 @@ export default function Tooltip({
             {showTooltip && (
                 <div
                     className={`absolute top-9 left-1/2 transform -translate-x-1/2 bg-[#202124] font-bold text-[#bdc1c6] py-1 px-[10px] border border-[#3c4043] text-[11px] shadow-clear-button ${className} ${
-                        email != null && '-left-[200%]'
+                        (email != null || userName != null) && '-left-[250%]'
                     }`}
                 >
                     <p className='whitespace-nowrap'>{text}</p>
-                    {userName && <p>{userName}</p>}
-                    {email && <p>{email}</p>}
+                    {userName != null && <p>{userName}</p>}
+                    {email != null && <p>{email}</p>}
                 </div>
             )}
         </div>
