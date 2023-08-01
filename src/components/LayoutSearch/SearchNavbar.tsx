@@ -79,7 +79,7 @@ function SearchNavbar() {
                             </button>
                         </Tooltip>
                     </li>
-                    <li>
+                    <li className='md:block hidden'>
                         <User />
                     </li>
                 </ul>
